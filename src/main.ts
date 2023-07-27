@@ -22,7 +22,7 @@ function quickSort(array: number[]): number[] {
 // Input: nums = [2,7,11,15], target = 9
 // Output: [0,1]
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
-const nums = [3, 3];
+const nums = [3, 2, 3];
 const target = 6;
 
 function twoSums(array: number[], target: number) {
@@ -35,7 +35,35 @@ function twoSums(array: number[], target: number) {
   }
 }
 
-// console.log(twoSums(nums, target));
+// console.log(twoSumsBetter(nums, target));
+
+//  Longest Substring Without Repeating Characters
+
+// Input: s = "pwwkew"
+// Output: 3
+// Explanation: The answer is "wke", with the length of 3.
+
+function lengthOfLongestSubstring(str: string) {
+  let maxLength = 0;
+  let start = 0;
+  const charSet = new Set();
+
+  for (let end = 0; end < str.length; end++) {
+    while (charSet.has(str[end])) {
+      charSet.delete(str[start]);
+      start++;
+    }
+
+    charSet.add(str[end]);
+    maxLength = Math.max(maxLength, end - start + 1);
+  }
+
+  return maxLength;
+}
+
+console.log(lengthOfLongestSubstring('pwwkew')); // Output: 3
+
+console.log(lengthOfLongestSubstring('ckilbkd'));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
