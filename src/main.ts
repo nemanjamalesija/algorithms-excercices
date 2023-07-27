@@ -123,6 +123,16 @@ function isPalindrome(n: number) {
 
 // console.log(isPalindrome(121));
 
+// IS PALINDROME STRING
+
+function isPalindromeString(s: string) {
+  const alphanumericOnly = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  const reversed = alphanumericOnly.split('').reverse().join('');
+  return alphanumericOnly === reversed;
+}
+
+// console.log(isPalindromeString('A man, a plan, a canal: Panama'));
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
   </div>
