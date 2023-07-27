@@ -104,7 +104,24 @@ function containsDuplicate(nums: number[]) {
   if (set.size > 0) return false;
 }
 
-console.log(containsDuplicate([1, 2, 3, 4]));
+// console.log(containsDuplicate([1, 2, 3, 4]));
+
+// 9. Palindrome Number
+
+// Given an integer x, return true if x is a palindrome and false otherwise.
+
+function isPalindrome(n: number) {
+  const nArray = n.toString().split('');
+  const nArrayReverse = [...nArray].reverse();
+
+  for (let i = 0; i <= nArray.length; i++) {
+    if (nArray[i] !== nArrayReverse[i]) return false;
+  }
+
+  return true;
+}
+
+// console.log(isPalindrome(121));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
