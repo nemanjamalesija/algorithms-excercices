@@ -50,20 +50,48 @@ function lengthOfLongestSubstring(str: string) {
 
   for (let end = 0; end < str.length; end++) {
     while (charSet.has(str[end])) {
+      console.log('while loop deleting ' + str[end] + ' i is ' + end);
       charSet.delete(str[start]);
       start++;
     }
-
+    console.log('for loop, adding ' + str[end] + ' i is ' + end);
     charSet.add(str[end]);
-    maxLength = Math.max(maxLength, end - start + 1);
+    maxLength = [...charSet].length;
   }
 
   return maxLength;
 }
 
-console.log(lengthOfLongestSubstring('pwwkew')); // Output: 3
+// console.log(lengthOfLongestSubstring('pwwkew')); // Output: 3
 
-console.log(lengthOfLongestSubstring('ckilbkd'));
+// valid parentheses
+function isValid(s: string) {
+  const stack = [];
+
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+
+    if (char === '(' || char === '[' || char === '{') {
+      stack.push(char);
+      console.log(stack);
+    } else {
+      const lastOpening = stack.pop();
+
+      if (
+        (char === ')' && lastOpening !== '(') ||
+        (char === ']' && lastOpening !== '[') ||
+        (char === '}' && lastOpening !== '{')
+      ) {
+        return false; // Invalid
+      }
+    }
+  }
+  console.log(stack);
+  return stack.length === 0; // The stack should be empty if all parentheses are valid
+}
+
+// const s = '([{()()}])';
+// console.log(isValid(s));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
