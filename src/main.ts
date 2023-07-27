@@ -133,6 +133,27 @@ function isPalindromeString(s: string) {
 
 // console.log(isPalindromeString('A man, a plan, a canal: Panama'));
 
+// IS ANAGRAM
+function isAnagram(s: string, t: string) {
+  const counter = [];
+  const sArray = s.split('').sort();
+  const tArray = t.split('').sort();
+
+  if (s.length !== t.length) return false;
+
+  for (let i = sArray.length - 1; i >= 0; i--) {
+    if (sArray[i] === tArray[i]) {
+      counter.push(true);
+    } else {
+      counter.push(false);
+    }
+  }
+
+  return counter.every((el) => el === true);
+}
+
+console.log(isAnagram('anagram', 'nagaram'));
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
   </div>
