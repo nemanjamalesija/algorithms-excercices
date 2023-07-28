@@ -183,7 +183,34 @@ function longestCommonPrefix(strs: string[]) {
 //Output: 2
 // Explanation: The subarray [4,3] has the minimal length under the problem constraint.
 
-function minSubArrayLength(target: number, nums: number[]) {}
+function minSubArrayLength(target: number, nums: number[]) {
+  let left = 0;
+  let sum = 0;
+  let minLength = Infinity;
+  console.log(nums);
+
+  for (let right = 0; right < nums.length; right++) {
+    console.log(`index is ${right}`);
+    console.log(`adding number ${nums[right]}`);
+    sum += nums[right];
+    console.log(`sum is ${sum}`);
+    while (sum >= target) {
+      console.log('sum is greater than target');
+      console.log(`min length before comparison is ${minLength}`);
+      minLength = Math.min(minLength, right - left + 1);
+      console.log(`min length after comparison is ${minLength}`);
+      console.log(`sum before comparison is ${sum}`);
+      sum -= nums[left];
+      console.log(`removing ${nums[left]} from ${sum}`);
+      left++;
+      console.log(`sum after comparison is ${sum}`);
+    }
+  }
+
+  return minLength;
+}
+
+console.log(minSubArrayLength(7, [2, 3, 1, 2, 4, 3]));
 
 // function minSubArraySum(nums: number[], size: number) {
 //   let currSum = 0;
