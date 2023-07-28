@@ -164,8 +164,6 @@ function longestCommonPrefix(strs: string[]) {
 
   for (let i = 1; i < strs.length; i++) {
     for (let j = 0; j < cur.length; j++) {
-      console.log(cur[j]);
-
       if (cur[j] == strs[i][j]) {
         temp += cur[j];
       } else {
@@ -178,7 +176,45 @@ function longestCommonPrefix(strs: string[]) {
   return cur;
 }
 
-console.log(longestCommonPrefix(['flower', 'flow', 'flight']));
+// console.log(longestCommonPrefix(['flower', 'flow', 'flight']));
+
+// MINIMUM SIZE SUBARAY SUM
+// Input: target = 7, nums = [2,3,1,2,4,3]
+//Output: 2
+// Explanation: The subarray [4,3] has the minimal length under the problem constraint.
+
+function minSubArrayLength(target: number, nums: number[]) {}
+
+// function minSubArraySum(nums: number[], size: number) {
+//   let currSum = 0;
+//   let maxSumSeen = -Infinity;
+
+//   for (let i = 0; i < nums.length; i++) {
+//     currSum += nums[i];
+
+//     console.log(`current index is ${i}`);
+//     console.log(nums[i]);
+
+//     if (i >= size - 1)
+//       console.log(`index is ${i}, size  is ${size - 1}, entering if block`);
+
+//     if (i >= size - 1) {
+//       console.log(`new current sum is ${currSum}`);
+//       console.log('max sum seen before comparison is ' + maxSumSeen);
+//       maxSumSeen = Math.max(currSum, maxSumSeen);
+//       console.log('max sum seen after comparison is ' + maxSumSeen);
+//       console.log('current sum before subtraction ' + currSum);
+//       console.log(`removing ${nums[i - (size - 1)]} from ${currSum}`);
+//       currSum -= nums[i - (size - 1)];
+
+//       console.log('current sum after subtraction ' + currSum);
+//     }
+//   }
+
+//   return maxSumSeen;
+// }
+
+// console.log(minSubArraySum([2, 3, 1, 2, 4, 3], 3));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
