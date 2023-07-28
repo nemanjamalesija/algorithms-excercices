@@ -152,7 +152,33 @@ function isAnagram(s: string, t: string) {
   return counter.every((el) => el === true);
 }
 
-console.log(isAnagram('anagram', 'nagaram'));
+// console.log(isAnagram('anagram', 'nagaram'));
+
+// LONGEST COMMON PREFIX
+//Input: strs = ["flower","flow","flight"]
+// Output: "fl"
+
+function longestCommonPrefix(strs: string[]) {
+  let cur = strs[0];
+  let temp = '';
+
+  for (let i = 1; i < strs.length; i++) {
+    for (let j = 0; j < cur.length; j++) {
+      console.log(cur[j]);
+
+      if (cur[j] == strs[i][j]) {
+        temp += cur[j];
+      } else {
+        break;
+      }
+    }
+    cur = temp;
+    temp = '';
+  }
+  return cur;
+}
+
+console.log(longestCommonPrefix(['flower', 'flow', 'flight']));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
