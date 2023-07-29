@@ -372,8 +372,39 @@ function majorityElement(nums: number[]) {
   return [...setter.entries()].sort((a, b) => b[1] - a[1])[0][0];
 }
 
-console.log(majorityElement([6, 5, 5]));
+// console.log(majorityElement([6, 5, 5]));
 
+// LONGEST PALINDROMIC SUBSTRING
+// Input: s = "babad"
+// Output: "bab"
+// Explanation: "aba" is also a valid answer.
+
+function longestPalindrome(s: string) {
+  const array = [];
+
+  if (s.length === 1) return s;
+  if (s.length === 2 && s.charAt(0) !== s.charAt(1)) return s.charAt(0);
+
+  for (let i = 0; i < s.length; i++) {
+    for (let j = 0; j < s.length + 1; j++)
+      if (
+        s.split('').splice(i, j).join('') ===
+        s.split('').splice(i, j).reverse().join('')
+      ) {
+        array.push(s.split('').splice(i, j).join(''));
+      }
+  }
+
+  return array.sort(function (a, b) {
+    return b.length - a.length;
+  })[0];
+}
+
+console.log(
+  longestPalindrome(
+    'civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth'
+  )
+);
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
   </div>
