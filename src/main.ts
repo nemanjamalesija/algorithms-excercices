@@ -354,22 +354,25 @@ function buddyStrings(s: string, goal: string) {
   return true;
 }
 
-console.log(buddyStrings('aaaaaaabc', 'aaaaaaacb'));
+// console.log(buddyStrings('aaaaaaabc', 'aaaaaaacb'));
 
-// aaaaaaba c
+// MAJORITY ELEMENT
+// Input: nums = [2,2,1,1,1,2,2]
+// Output: 2
 
-/* 
-i + 1
-a => a
-a => a
-a => a
-a => a
-a => a
-a => a
+function majorityElement(nums: number[]) {
+  const setter = new Map();
 
+  for (let i = 0; i < nums.length; i++) {
+    if (!setter.has(nums[i])) setter.set(nums[i], 1);
+    else {
+      setter.set(nums[i], setter.get(nums[i]) + 1);
+    }
+  }
+  return [...setter.entries()].sort((a, b) => b[1] - a[1])[0][0];
+}
 
-
-*/
+console.log(majorityElement([6, 5, 5]));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
