@@ -15,6 +15,25 @@ function quickSort(array: number[]): number[] {
   return [...quickSort(leftArray), pivot, ...quickSort(rightArray)];
 }
 
+function quickSortares(array: number[]): number[] {
+  if (array.length <= 1) {
+    return array; // Base case: array with 0 or 1 element is already sorted
+  }
+
+  const left = [];
+  const right = [];
+  let pivot = array[0];
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] < pivot) left.push(array[i]);
+    if (array[i] > pivot) right.push(array[i]);
+  }
+
+  return [...quickSortares(left), pivot, ...quickSort(right)];
+}
+
+console.log(quickSortares([2, 1, 4, 5, 9, 22, 11, 6, 55, 3]));
+
 // console.log(quickSort(array));
 
 // TWO SUM
@@ -210,7 +229,7 @@ function minSubArrayLength(target: number, nums: number[]) {
   return minLength;
 }
 
-console.log(minSubArrayLength(7, [2, 3, 1, 2, 4, 3]));
+// console.log(minSubArrayLength(7, [2, 3, 1, 2, 4, 3]));
 
 // function minSubArraySum(nums: number[], size: number) {
 //   let currSum = 0;
@@ -242,6 +261,25 @@ console.log(minSubArrayLength(7, [2, 3, 1, 2, 4, 3]));
 // }
 
 // console.log(minSubArraySum([2, 3, 1, 2, 4, 3], 3));
+
+function minArraySum(nums: number[], target: number) {
+  let maxSumSeen = -Infinity;
+  let currentSum = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    currentSum += nums[i];
+
+    if (i >= target - 1) {
+      maxSumSeen = Math.max(maxSumSeen, currentSum);
+
+      currentSum -= nums[i - (target - 1)];
+    }
+  }
+
+  return maxSumSeen;
+}
+
+// console.log(minArraySum([2, 3, 1, 2, 4, 3], 3));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
