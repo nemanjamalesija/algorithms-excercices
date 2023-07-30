@@ -416,7 +416,6 @@ function binnarySearch(nums: number[], target: number) {
     if (nums[middle] === target) return true;
     else if (nums[middle] < target) {
       lo = middle + 1;
-      console.log(`lo is ${lo}, caluclating middle...`);
     } else if (nums[middle] > target) hi = middle;
   }
   return false;
@@ -427,13 +426,21 @@ function binnarySearch(nums: number[], target: number) {
 function findBreakCrystalBall(breaks: boolean[]) {
   let jumpAmount = Math.floor(Math.sqrt(breaks.length));
 
-  for (let i = jumpAmount; i < breaks.length; i += jumpAmount) {
-    if (breaks[i] === true) break;
+  let i = jumpAmount;
+
+  for (; i < breaks.length; i += jumpAmount) {
+    if (breaks[i]) {
+      break;
+    }
   }
 
-  for (let j = jumpAmount; j <= jumpAmount * 2 && j <= breaks.length; j++) {
+  i -= jumpAmount;
+
+  for (let j = i; j <= i + jumpAmount && j <= breaks.length; j++) {
     if (breaks[j]) return j;
   }
+
+  return false;
 }
 
 console.log(
