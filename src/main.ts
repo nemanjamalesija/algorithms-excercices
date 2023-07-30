@@ -443,21 +443,37 @@ function findBreakCrystalBall(breaks: boolean[]) {
   return false;
 }
 
-console.log(
-  findBreakCrystalBall([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    true,
-    true,
-    true,
-    true,
-    true,
-  ])
-);
+// console.log(
+//   findBreakCrystalBall([
+//     false,
+//     false,
+//     false,
+//     false,
+//     false,
+//     false,
+//     true,
+//     true,
+//     true,
+//     true,
+//     true,
+//   ])
+// );
+
+function bubbleSort(nums: number[]) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length - i - 1; j++) {
+      if (nums[j] > nums[j + 1]) {
+        const temp = nums[j];
+        nums[j] = nums[j + 1];
+        nums[j + 1] = temp;
+      }
+    }
+  }
+
+  return nums;
+}
+
+console.log(bubbleSort([1, 3, 2, 6, 4, 10, 7, 5]));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
