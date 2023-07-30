@@ -416,12 +416,41 @@ function binnarySearch(nums: number[], target: number) {
     if (nums[middle] === target) return true;
     else if (nums[middle] < target) {
       lo = middle + 1;
+      console.log(`lo is ${lo}, caluclating middle...`);
     } else if (nums[middle] > target) hi = middle;
   }
   return false;
 }
 
-console.log(binnarySearch([1, 2, 3, 4, 5, 6], 1));
+// console.log(binnarySearch([1, 2, 3, 4, 5, 6], 6));
+
+function findBreakCrystalBall(breaks: boolean[]) {
+  let jumpAmount = Math.floor(Math.sqrt(breaks.length));
+
+  for (let i = jumpAmount; i < breaks.length; i += jumpAmount) {
+    if (breaks[i] === true) break;
+  }
+
+  for (let j = jumpAmount; j <= jumpAmount * 2 && j <= breaks.length; j++) {
+    if (breaks[j]) return j;
+  }
+}
+
+console.log(
+  findBreakCrystalBall([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+  ])
+);
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
