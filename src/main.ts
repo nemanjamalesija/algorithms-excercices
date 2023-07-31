@@ -473,7 +473,31 @@ function bubbleSort(nums: number[]) {
   return nums;
 }
 
-console.log(bubbleSort([1, 3, 2, 6, 4, 10, 7, 5]));
+// console.log(bubbleSort([1, 3, 2, 6, 4, 10, 7, 5]));
+
+// GROUP ANAGRAMS
+// Input: strs = ["eat","tea","tan","ate","nat","bat"]
+// Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+function groupAnagrams(strs: string[]) {
+  const newStrs = [];
+  const map = new Map();
+
+  for (let i = 0; i < strs.length; i++) {
+    newStrs.push(strs[i].split('').sort().join(''));
+  }
+
+  for (let j = 0; j < newStrs.length; j++) {
+    if (!map.has(newStrs[j])) {
+      map.set(newStrs[j], [strs[j]]);
+    } else {
+      map.get(newStrs[j]).push(strs[j]);
+    }
+  }
+  return Array.from(map.values());
+}
+
+console.log(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat']));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
