@@ -279,60 +279,6 @@ function minArraySum(nums: number[], target: number) {
 
 // console.log(minArraySum([2, 3, 1, 2, 4, 3], 3));
 
-// function mergeSort(array) {
-//   if (array.length <= 1) {
-//     return array; // Base case: array with 0 or 1 element is already sorted
-//   }
-
-//   // Split the array into two halves
-//   const middle = Math.floor(array.length / 2);
-//   const leftHalf = array.slice(0, middle);
-//   const rightHalf = array.slice(middle);
-
-//   // Recursively sort each half
-//   const sortedLeft = mergeSort(leftHalf);
-//   const sortedRight = mergeSort(rightHalf);
-
-//   // Merge the sorted halves
-//   return merge(sortedLeft, sortedRight);
-// }
-
-// function merge(left, right) {
-//   const mergedArray = [];
-//   let leftIndex = 0;
-//   let rightIndex = 0;
-
-//   // Merge the two sorted arrays into a single sorted array
-//   while (leftIndex < left.length && rightIndex < right.length) {
-//     if (left[leftIndex] < right[rightIndex]) {
-//       mergedArray.push(left[leftIndex]);
-//       leftIndex++;
-//     } else {
-//       mergedArray.push(right[rightIndex]);
-//       rightIndex++;
-//     }
-//   }
-
-//   // Add any remaining elements from the left and right arrays
-//   while (leftIndex < left.length) {
-//     mergedArray.push(left[leftIndex]);
-//     leftIndex++;
-//   }
-
-//   while (rightIndex < right.length) {
-//     mergedArray.push(right[rightIndex]);
-//     rightIndex++;
-//   }
-
-//   return mergedArray;
-// }
-
-// // Example usage:
-// const arr = [38, 27, 43, 3, 9, 82, 10];
-// const sortedArr = mergeSort(arr);
-// console.log('Original array:', arr);
-// console.log('Sorted array:', sortedArr);
-
 // BUDDY STRINGS
 // Input: s = "ab", goal = "ba"
 // Output: true
@@ -576,7 +522,44 @@ function factorialRecursion(n: number): number {
   return n * factorialRecursion(n - 1);
 }
 
-console.log(factorialRecursion(5));
+// console.log(factorialRecursion(5));
+function mergeSort(array: number[]) {
+  if (array.length <= 1) {
+    return array; // Base case: array with 0 or 1 element is already sorted
+  }
+
+  // Split the array into two halves
+  const middle = Math.floor(array.length / 2);
+  const leftHalf = array.slice(0, middle);
+  const rightHalf = array.slice(middle);
+
+  // Recursively sort each half
+  const sortedLeft = mergeSort(leftHalf) as number[];
+  const sortedRight = mergeSort(rightHalf) as number[];
+
+  // Merge the sorted halves
+  return merge(sortedLeft, sortedRight);
+}
+
+function merge(left: number[], right: number[]) {
+  const results = [];
+
+  while (left.length && right.length) {
+    if (left[0] <= right[0]) {
+      results.push(left.shift());
+    } else {
+      results.push(right.shift());
+    }
+  }
+
+  return results.concat(left, right);
+}
+
+// Example usage:
+const arr = [38, 27, 43, 3, 9, 82, 10];
+const sortedArr = mergeSort(arr);
+console.log('Original array:', arr);
+console.log('Sorted array:', sortedArr);
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
