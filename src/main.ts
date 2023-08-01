@@ -531,7 +531,16 @@ function insertionSortWhile(arr: number[]) {
   return arr;
 }
 
-console.log(insertionSortWhile([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]));
+// console.log(insertionSortWhile([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]));
+
+function fibonacci(n: number): number {
+  if (n === 2 || n === 1) return 1;
+  else if (n === 0) return 0;
+
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(10));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
