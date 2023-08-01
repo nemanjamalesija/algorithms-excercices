@@ -552,7 +552,30 @@ function fibonacciLoop(n: number) {
   return sequence[n];
 }
 
-console.log(fibonacciLoop(10));
+// console.log(fibonacciLoop(10));
+
+function nestedAdd(input: any) {
+  let sum = 0;
+
+  for (let i = 0; i < input.length; i++) {
+    if (Array.isArray(input[i])) {
+      sum += nestedAdd(input[i]);
+    } else {
+      sum += input[i];
+    }
+  }
+
+  return sum;
+}
+
+console.log(nestedAdd([10, [12, 14, [1], [16, [20]]], 10, 11]));
+
+// test.skip('nested arrays addition', () => {
+//   expect(nestedAdd([1, 2, 3])).toEqual(6);
+//   expect(nestedAdd([1, [2], 3])).toEqual(6);
+//   expect(nestedAdd([[[[[[[[[5]]]]]]]]])).toEqual(5);
+//   expect(nestedAdd([10, [12, 14, [1], [16, [20]]], 10, 11])).toEqual(94);
+// });
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
