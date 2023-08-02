@@ -23,9 +23,9 @@ function quickSortares(array: number[]): number[] {
   const right = [];
   let pivot = array[0];
 
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 1; i < array.length; i++) {
     if (array[i] < pivot) left.push(array[i]);
-    if (array[i] > pivot) right.push(array[i]);
+    else right.push(array[i]);
   }
 
   return [...quickSortares(left), pivot, ...quickSort(right)];
@@ -534,6 +534,8 @@ function mergeSort(array: number[]) {
   const rightHalf = array.slice(middle);
 
   // Recursively sort each half
+  console.log(leftHalf + ' left half');
+  console.log(rightHalf + ' right half');
   const sortedLeft = mergeSort(leftHalf) as number[];
   const sortedRight = mergeSort(rightHalf) as number[];
 
@@ -544,6 +546,9 @@ function mergeSort(array: number[]) {
 function merge(left: number[], right: number[]) {
   const results = [];
 
+  console.log(left + ' merging left half');
+  console.log(right + ' merging right half');
+
   while (left.length && right.length) {
     if (left[0] <= right[0]) {
       results.push(left.shift());
@@ -552,11 +557,14 @@ function merge(left: number[], right: number[]) {
     }
   }
 
+  console.log('merging');
+  console.log('returning ' + results.concat(left, right));
+
   return results.concat(left, right);
 }
 
 // Example usage:
-const arr = [38, 27, 43, 3, 9, 82, 10];
+const arr = [1, 5, 7, 4, 2, 3, 6];
 const sortedArr = mergeSort(arr);
 console.log('Original array:', arr);
 console.log('Sorted array:', sortedArr);
