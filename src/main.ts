@@ -564,10 +564,36 @@ function merge(left: number[], right: number[]) {
 }
 
 // Example usage:
-const arr = [1, 5, 7, 4, 2, 3, 6];
-const sortedArr = mergeSort(arr);
-console.log('Original array:', arr);
-console.log('Sorted array:', sortedArr);
+// const arr = [1, 5, 7, 4, 2, 3, 6];
+// const sortedArr = mergeSort(arr);
+// console.log('Original array:', arr);
+// console.log('Sorted array:', sortedArr);
+
+//  Return the k most frequent elements. You may return the answer in any order.
+// Input: (nums = [1, 1, 1, 2, 2, 3]), (k = 2);
+// Output: [1, 2];
+
+function topKFrequent(array: number[], k: number) {
+  const map = new Map();
+  let finalArr = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (!map.has(array[i])) map.set(array[i], [array[i]]);
+    else {
+      map.get(array[i]).push(array[i]);
+    }
+  }
+
+  const newArr = [...map.values()].sort((a, b) => b.length - a.length);
+
+  for (let j = 0; j < k; j++) {
+    finalArr.push(newArr[j][0]);
+  }
+
+  return finalArr;
+}
+
+console.log(topKFrequent([1, 1, 1, 2, 2, 3, 3, 3, 3, 3], 2));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
