@@ -586,6 +586,8 @@ function topKFrequent(array: number[], k: number) {
 
   const newArr = [...map.values()].sort((a, b) => b.length - a.length);
 
+  if (k > newArr.length) return -1;
+
   for (let j = 0; j < k; j++) {
     finalArr.push(newArr[j][0]);
   }
@@ -593,7 +595,42 @@ function topKFrequent(array: number[], k: number) {
   return finalArr;
 }
 
-console.log(topKFrequent([1, 1, 1, 2, 2, 3, 3, 3, 3, 3], 2));
+// console.log(topKFrequent([1, 1, 1, 2, 2, 3, 3, 3, 3, 3], 2));
+
+// Product of Array Except Self
+//Input: nums = [1, 2, 3, 4];
+//Output: [24, 12, 8, 6];
+
+// 128. Longest Consecutive Sequence
+// Input: nums = [100,4,200,1,3,2]
+// Output: 4
+// Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+
+function longestConsecutive(nums: number[]) {
+  if (nums.length === 0) return 0;
+
+  const setSequence = new Set(nums);
+  let maxSequenceLength = 0;
+
+  for (const num of setSequence) {
+    if (!setSequence.has(num - 1)) {
+      // Only start counting for the smallest element of a sequence
+      let currentNum = num;
+      let currentSequenceLength = 1;
+
+      while (setSequence.has(currentNum + 1)) {
+        currentNum += 1;
+        currentSequenceLength += 1;
+      }
+
+      maxSequenceLength = Math.max(maxSequenceLength, currentSequenceLength);
+    }
+  }
+
+  return maxSequenceLength;
+}
+
+console.log(longestConsecutive([100, 4, 200, 1, 3, 2]));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
