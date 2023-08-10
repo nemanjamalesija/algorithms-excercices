@@ -630,7 +630,39 @@ function longestConsecutive(nums: number[]) {
   return maxSequenceLength;
 }
 
-console.log(longestConsecutive([100, 4, 200, 1, 3, 2]));
+// console.log(longestConsecutive([100, 4, 200, 1, 3, 2]));
+
+// TWO SUM
+// Input: numbers = [2,7,11,15], target = 9
+// Output: [1,2]
+// Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
+
+function twoSum(numbers: number[], target: number) {
+  const arraySolution: number[] = [];
+
+  // Iterate through the array using the loop variable 'i'
+  for (let i = 0; i < numbers.length; i++) {
+    // Reset the pointers 'left' and 'right' for each iteration
+    let left = i;
+    let right = numbers.length - 1;
+
+    // Use a nested while loop to search for a pair that sums up to 'target'
+    while (left <= right) {
+      if (numbers[left] + numbers[right] === target) {
+        arraySolution.push(left + 1);
+        arraySolution.push(right + 1);
+        return arraySolution; // Return the solution once found
+      } else if (numbers[left] + numbers[right] > target) {
+        right--;
+      } else {
+        left++;
+      }
+    }
+  }
+
+  return arraySolution; // Return an empty array if no solution is found
+}
+console.log(twoSum([5, 25, 75], 100));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
