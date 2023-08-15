@@ -1,7 +1,6 @@
 import './style.css';
 
 // QUICK SORT
-
 function quickSort(array: number[]): number[] {
   if (array.length <= 1) {
     return array;
@@ -13,6 +12,7 @@ function quickSort(array: number[]): number[] {
 
   return [...quickSort(leftArray), pivot, ...quickSort(rightArray)];
 }
+// console.log(quickSort(array));
 
 function quickSortares(array: number[]): number[] {
   if (array.length <= 1) {
@@ -30,10 +30,7 @@ function quickSortares(array: number[]): number[] {
 
   return [...quickSortares(left), pivot, ...quickSort(right)];
 }
-
 // console.log(quickSortares([2, 1, 4, 5, 9, 22, 11, 6, 55, 3]));
-
-// console.log(quickSort(array));
 
 // TWO SUM
 
@@ -52,7 +49,6 @@ function twoSums(array: number[], target: number) {
     }
   }
 }
-
 // console.log(twoSumsBetter(nums, target));
 
 //  Longest Substring Without Repeating Characters
@@ -79,10 +75,9 @@ function lengthOfLongestSubstring(str: string) {
 
   return maxLength;
 }
-
 // console.log(lengthOfLongestSubstring('pwwkew')); // Output: 3
 
-// valid parentheses
+// VALID PARENTHESES
 function isValid(s: string) {
   const stack = [];
 
@@ -192,7 +187,6 @@ function longestCommonPrefix(strs: string[]) {
   }
   return cur;
 }
-
 // console.log(longestCommonPrefix(['flower', 'flow', 'flight']));
 
 // MINIMUM SIZE SUBARAY SUM
