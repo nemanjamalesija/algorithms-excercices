@@ -220,7 +220,6 @@ function minSubArrayLength(target: number, nums: number[]) {
 
   return minLength;
 }
-
 // console.log(minSubArrayLength(7, [2, 3, 1, 2, 4, 3]));
 
 // function minSubArraySum(nums: number[], size: number) {
@@ -270,7 +269,6 @@ function minArraySum(nums: number[], target: number) {
 
   return maxSumSeen;
 }
-
 // console.log(minArraySum([2, 3, 1, 2, 4, 3], 3));
 
 // BUDDY STRINGS
@@ -293,7 +291,6 @@ function buddyStrings(s: string, goal: string) {
 
   return true;
 }
-
 // console.log(buddyStrings('aaaaaaabc', 'aaaaaaacb'));
 
 // MAJORITY ELEMENT
@@ -311,7 +308,6 @@ function majorityElement(nums: number[]) {
   }
   return [...setter.entries()].sort((a, b) => b[1] - a[1])[0][0];
 }
-
 // console.log(majorityElement([6, 5, 5]));
 
 // LONGEST PALINDROMIC SUBSTRING
@@ -339,13 +335,7 @@ function longestPalindrome(s: string) {
     return b.length - a.length;
   })[0];
 }
-
-// console.log(
-//   longestPalindrome(
-//     'civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth'
-//   )
-// );
-
+////////
 function binnarySearch(nums: number[], target: number) {
   let lo = 0;
   let hi = nums.length;
@@ -360,7 +350,6 @@ function binnarySearch(nums: number[], target: number) {
   }
   return false;
 }
-
 // console.log(binnarySearch([1, 2, 3, 4, 5, 6], 6));
 
 function findBreakCrystalBall(breaks: boolean[]) {
@@ -384,19 +373,7 @@ function findBreakCrystalBall(breaks: boolean[]) {
 }
 
 // console.log(
-//   findBreakCrystalBall([
-//     false,
-//     false,
-//     false,
-//     false,
-//     false,
-//     false,
-//     true,
-//     true,
-//     true,
-//     true,
-//     true,
-//   ])
+//   findBreakCrystalBall([false, false, false, false, true, true, true])
 // );
 
 function bubbleSort(nums: number[]) {
@@ -436,7 +413,6 @@ function groupAnagrams(strs: string[]) {
   }
   return Array.from(map.values());
 }
-
 // console.log(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat']));
 
 function insertionSort(arr: number[]) {
@@ -452,7 +428,6 @@ function insertionSort(arr: number[]) {
 
   return arr;
 }
-
 // console.log(insertionSort([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]));
 
 function insertionSortWhile(arr: number[]) {
@@ -470,7 +445,6 @@ function insertionSortWhile(arr: number[]) {
   }
   return arr;
 }
-
 // console.log(insertionSortWhile([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]));
 
 function fibonacci(n: number): number {
@@ -479,7 +453,6 @@ function fibonacci(n: number): number {
 
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
-
 // console.log(fibonacci(3));
 
 function fibonacciLoop(n: number) {
@@ -507,7 +480,6 @@ function nestedAdd(input: any) {
 
   return sum;
 }
-
 // console.log(nestedAdd([10, [12, 14, [1], [16, [20]]], 10, 11]));
 
 function factorialRecursion(n: number): number {
@@ -588,7 +560,6 @@ function topKFrequent(array: number[], k: number) {
 
   return finalArr;
 }
-
 // console.log(topKFrequent([1, 1, 1, 2, 2, 3, 3, 3, 3, 3], 2));
 
 // Product of Array Except Self
@@ -623,7 +594,6 @@ function longestConsecutive(nums: number[]) {
 
   return maxSequenceLength;
 }
-
 // console.log(longestConsecutive([100, 4, 200, 1, 3, 2]));
 
 // TWO SUM
@@ -656,7 +626,7 @@ function twoSum(numbers: number[], target: number) {
 
   return arraySolution; // Return an empty array if no solution is found
 }
-console.log(twoSum([5, 25, 75], 100));
+// console.log(twoSum([5, 25, 75], 100));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
